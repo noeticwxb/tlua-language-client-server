@@ -11,3 +11,5 @@ Sample/VsCode/out/
 Sample/VsCode/server/net5.0/
 Sample/VsCode/.vscode/launch.json
 Sample/VsCode/.vscode/
+bin
+obj
