@@ -118,54 +118,33 @@ namespace Server
 
                     SignatureHelpProvider = null,
 
-                    DefinitionProvider = true,
+                    DefinitionProvider = false,
 
                     TypeDefinitionProvider = false,
 
                     ImplementationProvider = false,
 
-                    ReferencesProvider = true,
+                    ReferencesProvider = false,
 
-                    DocumentHighlightProvider = true,
+                    DocumentHighlightProvider = false,
 
-                    DocumentSymbolProvider = true,
+                    DocumentSymbolProvider = false,
 
                     CodeLensProvider = null,
 
                     DocumentLinkProvider = null,
 
-                    DocumentFormattingProvider = true,
+                    DocumentFormattingProvider = false,
 
                     DocumentRangeFormattingProvider = false,
 
-                    RenameProvider = true,
+                    RenameProvider = false,
 
                     FoldingRangeProvider = new SumType<bool, FoldingRangeOptions, FoldingRangeRegistrationOptions>(false),
 
                     ExecuteCommandProvider = null,
 
-                    WorkspaceSymbolProvider = false,
-
-                    SemanticTokensProvider = new SemanticTokensOptions()
-                    {
-                        Full = true,
-                        Range = false,
-                        Legend = new SemanticTokensLegend()
-                        {
-                            tokenTypes = new string[] {
-                                "class",
-                                "variable",
-                                "enum",
-                                "comment",
-                                "string",
-                                "keyword",
-                            },
-                            tokenModifiers = new string[] {
-                                "declaration",
-                                "documentation",
-                            }
-                        }
-                    },
+                    WorkspaceSymbolProvider = false
                 };
 
                 InitializeResult result = new InitializeResult

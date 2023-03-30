@@ -13,3 +13,5 @@ Sample/VsCode/.vscode/launch.json
 Sample/VsCode/.vscode/
 bin
 obj
+/TLuaClient/node_modules
+/TLuaClient/server_bin

@@ -17,6 +17,7 @@
 		<PackageTags>LSP Language-Server-Protocol</PackageTags>
 		<PackageReleaseNotes>For further information, see https://github.com/kaby76/lsp-types.</PackageReleaseNotes>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<BaseOutputPath></BaseOutputPath>
 	</PropertyGroup>
 
 	<ItemGroup>

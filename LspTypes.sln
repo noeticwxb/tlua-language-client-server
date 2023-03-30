@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server", "TLuaServer\Server.csproj", "{11ED2D6D-720A-43D6-93D3-CB2D8712491E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLuaServer", "TLuaServer\TLuaServer.csproj", "{11ED2D6D-720A-43D6-93D3-CB2D8712491E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
