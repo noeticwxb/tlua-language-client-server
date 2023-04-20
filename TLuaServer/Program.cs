@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
+using TLuaServer;
 
 namespace Server
 {
@@ -27,6 +28,7 @@ namespace Server
             stdin = new Tee(stdin, new Dup("editor"), Tee.StreamOwnership.OwnNone);
             stdout = new Tee(stdout, new Dup("server"), Tee.StreamOwnership.OwnNone);
             var languageServer = new LSPServer(stdout, stdin);
+            TLua.Log.Init(new TLuaLog());
             await Task.Delay(-1);
         }
     }
