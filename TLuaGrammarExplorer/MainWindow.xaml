@@ -1,0 +1,31 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="TLuaGrammarExplorer.MainWindow"
+        Title="MainWindow" Height="800" Width="1297">
+    <Grid>
+        <TextBox x:Name="tbLuaCode" HorizontalAlignment="Left" Height="611" Margin="10,34,0,0" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="310" Text="Game as TCLASS= class(Base)&#xA;&#xD;&#xA;Game.Company as STRING = &quot;HE&quot;&#xD;&#xA;&#xA;InsGame as Game = nil&#xD;&#xA;&#xA;function GameInstace() as Game&#xD;&#xA;  return InsGame &#xA;end&#xA;&#xA;function Game.StaticFunction(...)  as VOID&#xA;end&#xA;&#xA;function Game:ctor() as VOID&#xA;  self.Name as STRING = &quot;Kamuy&quot;&#xA;end&#xD;&#xA;&#xD;&#xA;function KKK(p as Game) as Game&#xD;&#xA;  return nil&#xD;&#xA;end&#xD;&#xA;&#xD;&#xA;using UnityEngine.GameObject&#xD;&#xA;&#xD;&#xA;UGameObject as ALIAS = UnityEngine.GameObject"/>
+        <Button x:Name="btnParser" Content="Parser" HorizontalAlignment="Left" Margin="127,661,0,0" VerticalAlignment="Top" Width="75" Click="BtnParser_Click"/>
+        <ListView x:Name="lvTokenList" HorizontalAlignment="Left" Height="425" Margin="372,34,0,0" VerticalAlignment="Top" Width="302">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Type}" Header="Type"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Data}" Header="Text"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBox x:Name="tbParseError" HorizontalAlignment="Left" Height="54" Margin="20,688,0,0" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top" Width="664"/>
+        <TreeView x:Name="tvParseTree" HorizontalAlignment="Left" Height="425" Margin="734,34,0,0" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.54,-0.18" SelectedItemChanged="tvParseTree_SelectedItemChanged"/>
+        <ListView x:Name="lvStatementDetail" HorizontalAlignment="Left" Height="142" Margin="372,503,0,0" VerticalAlignment="Top" Width="614">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <CheckBox x:Name="cbThrowError" Content="ThrowError" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+        <CheckBox x:Name="cbPaserColorToken" Content="ParseColor" HorizontalAlignment="Left" Margin="20,664,0,0" VerticalAlignment="Top"/>
+        <TreeView x:Name="tvDeclarationTree" HorizontalAlignment="Left" Height="425" Margin="1011,34,0,0" VerticalAlignment="Top" Width="252" RenderTransformOrigin="0.54,-0.18" SelectedItemChanged="tvDeclarationTree_SelectedItemChanged"/>
+
+    </Grid>
+</Window>

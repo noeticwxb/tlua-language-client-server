@@ -1,0 +1,82 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- Add properties required for WPF 
+  <PropertyGroup>
+    <MSBuildAllProjects>
+      $(MSBuildAllProjects);$(IronPythonPath)\IronPython.targets
+    </MSBuildAllProjects>
+    <DefaultLanguageSourceExtension>.py</DefaultLanguageSourceExtension>
+    <Language>IronPython</Language>
+  </PropertyGroup>-->
+
+  <!--Import the standards targets-->
+
+  <Import Project="$(MSBuildBinPath)\Microsoft.Common.targets" />
+
+
+  <!--Reference the assembly where our tasks are defined-->
+  <UsingTask TaskName="TLua.TLuaCompile.TLuaCompileTask" AssemblyFile="TLuaCompile.dll" />
+  <UsingTask TaskName="TLua.TLuaCompile.TLuaCleanTask" AssemblyFile="TLuaCompile.dll" />
+  
+  <!--
+  <UsingTask TaskName="CreateCSharpManifestResourceName"
+           AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.v4.0.dll" />
+  -->
+
+  <!--Compile target (this is the target that calls the compiler task)-->
+  <Target Name="Build"
+          Inputs="@(Content);@(ReferencePath);@(ManifestResourceWithNoCulture);@(ManifestNonResxWithNoCultureOnDisk);@(CompiledLicenseFile)"
+          Outputs="@(IntermediateAssembly)">
+    <Message Text="Building: @(IntermediateAssembly)" />
+    <TLuaCompileTask BuildOutputPath ="$(BuildOutputPath)" Items="@(Content)" />
+  </Target>
+
+  <Target Name="Clean"
+        Inputs="@(Content);@(ReferencePath);@(ManifestResourceWithNoCulture);@(ManifestNonResxWithNoCultureOnDisk);@(CompiledLicenseFile)"
+        Outputs="@(IntermediateAssembly)">
+    <Message Text="Building: @(IntermediateAssembly)" />
+    <TLuaCleanTask BuildOutputPath ="$(BuildOutputPath)" Items="@(Content)" />
+  </Target>
+
+  <!--This is an override of CoreCompile to have our IronPythonCompilerTarget be called at compile time-->
+  <!--<Target
+      Name="Build"
+      Inputs="@(Compile);
+              @(ReferencePath)"
+      Outputs="@(IntermediateAssembly)"
+      DependsOnTargets="TLuaCompilerTarget"
+    >
+  </Target>-->
+
+  <!--
+    The CreateManifestResourceNames target create the manifest resource names from the .RESX
+    files.
+
+        [IN]
+        @(ResxWithNoCulture) - The names the non-culture .RESX files.
+        @(ResxWithCulture) - The names the culture .RESX files.
+        @(NonResxWithNoCulture) - The names of the non-culture non-RESX files (like bitmaps, etc).
+        @(NonResxWithCulture) - The names of the culture non-RESX files (like bitmaps, etc).
+
+        [OUT]
+        @(ManifestResourceWithNoCultureName) - The corresponding manifest resource name (.RESOURCE)
+        @(ManifestResourceWithCultureName) - The corresponding manifest resource name (.RESOURCE)
+        @(ManifestNonResxWithNoCulture) - The corresponding manifest resource name.
+        @(ManifestNonResxWithCulture) - The corresponding manifest resource name.
+
+    For IronPython applications the transformation is like:
+
+        Resources1.resx => RootNamespace.Resources1 => Build into main assembly
+        SubFolder\Resources1.resx => RootNamespace.SubFolder.Resources1 => Build into main assembly
+        Resources1.fr.resx => RootNamespace.Resources1.fr => Build into satellite assembly
+        Resources1.notaculture.resx => RootNamespace.Resources1.notaculture => Build into main assembly
+
+    For other project systems, this transformation may be different.
+    -->
+  
+  
+  <Target Name="CreateManifestResourceNames" >
+    <!-- Do Nothing -->
+  </Target>
+
+</Project>

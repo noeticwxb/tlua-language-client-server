@@ -14,6 +14,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TLuaServer", "TLuaServer\TLuaServer.csproj", "{11ED2D6D-720A-43D6-93D3-CB2D8712491E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpLua", "SharpLua\SharpLua.csproj", "{90A9C907-11AD-4754-8B70-51CCB3A6C98A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLuaDeclaration", "Declaration\TLuaDeclaration.csproj", "{C2A57DE9-98F8-461A-812F-E0F5B858E1B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLuaAnalysis", "TLuaAnalysis\TLuaAnalysis.csproj", "{794F2F43-A6BE-4C3F-A1F7-3AC38E9D71EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLuaCompile", "TLuaCompile\TLuaCompile.csproj", "{6A1FB3F9-96AB-4C88-BD02-7BF3C5DAFBE5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TLuaGrammarExplorer", "TLuaGrammarExplorer\TLuaGrammarExplorer.csproj", "{71B1E0B0-6988-47D7-ABA8-60645CEDE677}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +38,26 @@ Global
 		{11ED2D6D-720A-43D6-93D3-CB2D8712491E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11ED2D6D-720A-43D6-93D3-CB2D8712491E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11ED2D6D-720A-43D6-93D3-CB2D8712491E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A9C907-11AD-4754-8B70-51CCB3A6C98A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A9C907-11AD-4754-8B70-51CCB3A6C98A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A9C907-11AD-4754-8B70-51CCB3A6C98A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A9C907-11AD-4754-8B70-51CCB3A6C98A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2A57DE9-98F8-461A-812F-E0F5B858E1B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2A57DE9-98F8-461A-812F-E0F5B858E1B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2A57DE9-98F8-461A-812F-E0F5B858E1B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2A57DE9-98F8-461A-812F-E0F5B858E1B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{794F2F43-A6BE-4C3F-A1F7-3AC38E9D71EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{794F2F43-A6BE-4C3F-A1F7-3AC38E9D71EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{794F2F43-A6BE-4C3F-A1F7-3AC38E9D71EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{794F2F43-A6BE-4C3F-A1F7-3AC38E9D71EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A1FB3F9-96AB-4C88-BD02-7BF3C5DAFBE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A1FB3F9-96AB-4C88-BD02-7BF3C5DAFBE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A1FB3F9-96AB-4C88-BD02-7BF3C5DAFBE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A1FB3F9-96AB-4C88-BD02-7BF3C5DAFBE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71B1E0B0-6988-47D7-ABA8-60645CEDE677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71B1E0B0-6988-47D7-ABA8-60645CEDE677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71B1E0B0-6988-47D7-ABA8-60645CEDE677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71B1E0B0-6988-47D7-ABA8-60645CEDE677}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
