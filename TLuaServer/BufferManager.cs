@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Concurrent;
 using System.Text;
 
@@ -8,7 +9,7 @@ namespace TLuaServer
     // https://github.com/BLK10/StringBuffer/blob/master/StringBuffer.cs
     class BufferManager
     {
-        private ConcurrentDictionary<string, string> _buffers = new ConcurrentDictionary<string, string>();
+        private ConcurrentDictionary<string, StringBuffer> _buffers = new ConcurrentDictionary<string, StringBuffer>();
 
         private static BufferManager _buffer;
 
@@ -29,14 +30,40 @@ namespace TLuaServer
             _buffer = new BufferManager();
         }
 
-        public void UpdateBuffer(string documentPath, string buffer)
+        public void UpdateText(string documentPath, string text)
         {
-            _buffers.AddOrUpdate(documentPath, buffer, (k, v) => buffer);
+            _buffers.AddOrUpdate(documentPath, new StringBuffer(text), (k, oldValue) =>
+            {
+                oldValue.UpdateText(text);
+                return oldValue;
+            });
+
         }
 
-        public string GetBuffer(string documentPath)
+        public string GetText(string documentPath)
         {
-            return _buffers.TryGetValue(documentPath, out var buffer) ? buffer : null;
+            StringBuffer buf = GetBuffer(documentPath);
+            if (buf != null)
+            {
+                return buf.Text;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public StringBuffer GetBuffer(string documentPath)
+        {
+            StringBuffer buf;
+            if (_buffers.TryGetValue(documentPath, out buf))
+            {
+                return buf;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

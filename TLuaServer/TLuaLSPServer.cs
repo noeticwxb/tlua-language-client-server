@@ -87,6 +87,8 @@ namespace TLuaServer
                     System.Console.Error.WriteLine(arg.ToString());
                 }
 
+                init_SemanticTokensLegend();
+
                 var init_params = arg.ToObject<InitializeParams>();
 
                 ServerCapabilities capabilities = new ServerCapabilities
@@ -101,7 +103,11 @@ namespace TLuaServer
                         }
                     },
 
-                    CompletionProvider = null,
+                    CompletionProvider = new CompletionOptions
+                    {
+                        TriggerCharacters = new string[] { ":","." }
+                    },
+
 
                     HoverProvider = true,
 
@@ -133,7 +139,14 @@ namespace TLuaServer
 
                     ExecuteCommandProvider = null,
 
-                    WorkspaceSymbolProvider = false
+                    WorkspaceSymbolProvider = false,
+
+                    SemanticTokensProvider = new SemanticTokensOptions {
+                        Full = true,
+                        Range = false,
+                        Legend = this.tokenLegend
+                    }
+
                 };
 
                 InitializeResult result = new InitializeResult

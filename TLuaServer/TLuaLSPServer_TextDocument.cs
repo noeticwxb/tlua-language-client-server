@@ -26,7 +26,7 @@ namespace TLuaServer
 
                     LogInfo("TextDocumentDidOpenName " + item.Uri.ToString());
 
-                    BufferManager.instance.UpdateBuffer(item.Uri.ToString(), item.Text);
+                    BufferManager.instance.UpdateText(item.Uri.ToString(), item.Text);
 
                 }
                 catch (SystemException e)
@@ -51,7 +51,7 @@ namespace TLuaServer
 
                     if (!string.IsNullOrEmpty(text))
                     {
-                        BufferManager.instance.UpdateBuffer(item.Uri, text);
+                        BufferManager.instance.UpdateText(item.Uri, text);
                     }
                     else
                     {
@@ -85,7 +85,7 @@ namespace TLuaServer
                         for (int i = 0; i < events.Length; ++i)
                         {
                             TextDocumentContentChangeEvent changeEvent = events[i];
-                            BufferManager.instance.UpdateBuffer(uri, changeEvent.Text);
+                            BufferManager.instance.UpdateText(uri, changeEvent.Text);
                         }
                     }
                     else
@@ -93,7 +93,7 @@ namespace TLuaServer
                         LogError("not support " + SyncKind);
                     }
 
-                    LogInfo("TextDocumentDidChangeName " + item.Uri.ToString());
+                    //LogInfo("TextDocumentDidChangeName " + item.Uri.ToString());
 
                 }
                 catch (SystemException e)
